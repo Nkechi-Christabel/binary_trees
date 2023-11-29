@@ -15,16 +15,23 @@ int main(void)
         20, 22, 98, 1, 62, 95
     };
     size_t n = sizeof(array) / sizeof(array[0]);
-    bst_t *node;
 
     tree = array_to_bst(array, n);
     if (!tree)
         return (1);
     binary_tree_print(tree);
-    node = bst_search(tree, 32);
-    printf("Found: %d\n", node->n);
-    binary_tree_print(node);
-    node = bst_search(tree, 512);
-    printf("Node should be nil -> %p\n", (void *)node);
-    return (0);
+
+    tree = bst_remove(tree, 79);
+    printf("Removed 79...\n");
+    binary_tree_print(tree);
+
+    tree = bst_remove(tree, 21);
+    printf("Removed 21...\n");
+    binary_tree_print(tree);
+
+    tree = bst_remove(tree, 68);
+    printf("Removed 68...\n");
+    binary_tree_print(tree);
+    binary_tree_delete(tree);
+  return (0);
 }
