@@ -8,15 +8,15 @@
  */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-    size_t left_height, right_height;
+	size_t left_height, right_height;
 
-    if (tree == NULL)
-        return 0;
+	if (tree == NULL)
+		return (0);
 
-    left_height = binary_tree_height(tree->left);
-    right_height = binary_tree_height(tree->right);
+	left_height = binary_tree_height(tree->left);
+	right_height = binary_tree_height(tree->right);
 
-    return (left_height > right_height ? left_height : right_height) + 1;
+	return ((left_height > right_height ? left_height : right_height) + 1);
 }
 
 /**
@@ -25,22 +25,24 @@ size_t binary_tree_height(const binary_tree_t *tree)
  * @level: Level to print
  * @func: Pointer to a function to call for each node
  */
-void print_given_level(const binary_tree_t *tree, size_t level, void (*func)(int))
+void print_given_level(const binary_tree_t *tree, size_t level,
+		void (*func)(int))
 {
-    if (tree == NULL)
-        return;
+	if (tree == NULL)
+		return;
 
-    if (level == 1)
-        func(tree->n);
-    else if (level > 1)
-    {
-        print_given_level(tree->left, level - 1, func);
-        print_given_level(tree->right, level - 1, func);
-    }
+	if (level == 1)
+		func(tree->n);
+	else if (level > 1)
+	{
+		print_given_level(tree->left, level - 1, func);
+		print_given_level(tree->right, level - 1, func);
+	}
 }
 
 /**
- * binary_tree_levelorder - Goes through a binary tree using level-order traversal
+ * binary_tree_levelorder - Goes through a binary tree using level-order
+ * traversal
  * @tree: Pointer to the root node of the tree to traverse
  * @func: Pointer to a function to call for each node
  *
@@ -48,11 +50,12 @@ void print_given_level(const binary_tree_t *tree, size_t level, void (*func)(int
  */
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
-    if (tree == NULL || func == NULL)
-        return;
+	if (tree == NULL && func == NULL)
+		return;
 
-    size_t level, height = binary_tree_height(tree);
+	size_t level, height = binary_tree_height(tree);
 
-    for (level = 1; level <= height; level++)
-        print_given_level(tree, level, func);
+	for (level = 1; level <= height; level++)
+		print_given_level(tree, level, func);
 }
+
