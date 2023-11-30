@@ -50,6 +50,9 @@ binary_tree_t *binary_tree_sibling(binary_tree_t *node);
 binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 		const binary_tree_t *second);
+
+
+/* Advanced Tasks*/
 int binary_tree_is_ancestor(const binary_tree_t *ancestor,
 		const binary_tree_t *node);
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
@@ -70,5 +73,10 @@ heap_t *array_to_heap(int *array, size_t size);
 int heap_extract(heap_t **root);
 int *heap_to_sorted_array(heap_t *heap, size_t *size);
 avl_t *avl_insert(avl_t **tree, int value);
+
+
+/* Helper function*/
+int check_bst(const binary_tree_t *tree, int *prev);
+
 
 #endif /* BINARY_TREES */
