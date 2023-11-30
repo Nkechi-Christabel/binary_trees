@@ -28,7 +28,7 @@ size_t binary_tree_height(const binary_tree_t *tree)
 void print_given_level(const binary_tree_t *tree, void (*func)(int),
 		size_t level)
 {
-	if (tree == NULL)
+	if (tree == NULL || !func)
 		return;
 
 	if (level == 1)
