@@ -1,4 +1,3 @@
-/* 30. Is AVL */
 #include "binary_trees.h"
 #include <limits.h>
 
